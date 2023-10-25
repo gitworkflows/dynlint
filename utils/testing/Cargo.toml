@@ -1,7 +1,7 @@
 [package]
 name = "dynlint_testing"
 version = "2.4.3"
-authors = ["Samuel E. Moelius III <sam@moeli.us>"]
+authors = ["KhulnaSoft DevSecOps <security@khulnasoft.com>"]
 description = "Utilities for testing Dynlint libraries"
 edition = "2021"
 license = "MIT OR Apache-2.0"

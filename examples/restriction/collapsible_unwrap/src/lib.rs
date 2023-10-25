@@ -154,7 +154,9 @@ impl CollapsibleUnwrap {
             }
         }
 
-        if let Some(SpanSugg { span, sugg }) = unwrap_span_sugg && !span.is_empty() {
+        if let Some(SpanSugg { span, sugg }) = unwrap_span_sugg
+            && !span.is_empty()
+        {
             span_lint_and_sugg(
                 cx,
                 COLLAPSIBLE_UNWRAP,

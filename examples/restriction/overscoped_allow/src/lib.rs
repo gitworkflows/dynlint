@@ -143,7 +143,9 @@ fn read_diagnostics() -> Result<Vec<Diagnostic>> {
     let mut diagnostics = Vec::new();
     for result in serde_json::Deserializer::from_reader(file).into_iter::<Message>() {
         let message = result?;
-        if message.reason == "compiler-message" && let Some(diagnostic) = message.message {
+        if message.reason == "compiler-message"
+            && let Some(diagnostic) = message.message
+        {
             diagnostics.push(diagnostic);
         }
     }
@@ -502,9 +504,9 @@ mod test {
             OVERSCOPED_ALLOW_PATH,
             temp_path.to_string_lossy().to_string(),
         );
-        // smoelius: Don't use `dynlint_testing::ui_test_example`. That function copies the example's
-        // source file to a temporary directory, so the resulting path wouldn't match what's in the
-        // (temporary) `warnings.json` file.
+        // smoelius: Don't use `dynlint_testing::ui_test_example`. That function copies the
+        // example's source file to a temporary directory, so the resulting path wouldn't
+        // match what's in the (temporary) `warnings.json` file.
         dynlint_testing::ui_test(
             env!("CARGO_PKG_NAME"),
             &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("ui_general"),

@@ -29,8 +29,8 @@ fn invalid_pattern() {
             .open(tempdir.path().join("Cargo.toml"))
             .unwrap();
 
-        // smoelius: For the `../*` test to be effective, there must be multiple copies of Dynlint in
-        // Cargo's `checkouts` directory.
+        // smoelius: For the `../*` test to be effective, there must be multiple copies of Dynlint
+        // in Cargo's `checkouts` directory.
         write!(
             file,
             r#"

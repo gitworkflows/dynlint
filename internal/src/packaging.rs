@@ -53,10 +53,10 @@ pub fn isolate(path: &Path) -> Result<()> {
     Ok(())
 }
 
-// smoelius: If you clone, say, `dynlint-template` and run `cargo test` on it, it will obtain Dynlint
-// packages from `crates.io`. But for the tests in this repository, you often want it to use the
-// packages in this repository. The function `use_local_packages` patches a workspace's `Cargo.toml`
-// file to do so.
+// smoelius: If you clone, say, `dynlint-template` and run `cargo test` on it, it will obtain
+// Dynlint packages from `crates.io`. But for the tests in this repository, you often want it to use
+// the packages in this repository. The function `use_local_packages` patches a workspace's
+// `Cargo.toml` file to do so.
 pub fn use_local_packages(path: &Path) -> Result<()> {
     let metadata = current_metadata()?;
 

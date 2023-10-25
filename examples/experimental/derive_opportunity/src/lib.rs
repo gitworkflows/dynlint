@@ -288,8 +288,8 @@ fn all_params_are_lifetimes(tcx: ty::TyCtxt<'_>, trait_id: DefId) -> bool {
 // https://github.com/rust-lang/rust/blob/fbdef58414af2b3469bf4f0f83bb136945414b96/compiler/rustc_middle/src/ty/context.rs#L1582-L1606
 
 /// Computes the def-ids of the transitive supertraits of `trait_def_id`. This (intentionally) does
-/// not compute the full elaborated super-predicates but just the set of def-ids. It is used
-/// to identify which traits may define a given associated type to help avoid cycle errors.
+/// not compute the full elaborated super-predicates but just the set of def-ids. It is used to
+/// identify which traits may define a given associated type to help avoid cycle errors.
 /// Returns a `DefId` iterator.
 fn super_traits_of(tcx: ty::TyCtxt<'_>, trait_def_id: DefId) -> impl Iterator<Item = DefId> + '_ {
     let mut set = FxHashSet::default();
@@ -336,7 +336,9 @@ fn is_derived(cx: &LateContext<'_>, def_id: DefId) -> Option<Macro> {
             // smoelius: I'm not sure whether `SyntaxExtension::builtin_name` would be the right
             // thing to use here; regardless, I can't figure out how to retrieve that data:
             // https://github.com/rust-lang/rust/blob/d651fa78cefecefa87fa3d7dc1e1389d275afb63/compiler/rustc_expand/src/base.rs#L729-L731
-            Some(Macro::Builtin(*cx.get_def_path(macro_def_id).last().unwrap()))
+            Some(Macro::Builtin(
+                *cx.get_def_path(macro_def_id).last().unwrap(),
+            ))
         } else {
             Some(Macro::External(macro_def_id))
         }

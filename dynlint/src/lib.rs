@@ -177,7 +177,10 @@ pub fn run(opts: &Dynlint) -> Result<()> {
     run_with_name_toolchain_map(&opts, &name_toolchain_map)
 }
 
-fn run_with_name_toolchain_map(opts: &Dynlint, name_toolchain_map: &NameToolchainMap) -> Result<()> {
+fn run_with_name_toolchain_map(
+    opts: &Dynlint,
+    name_toolchain_map: &NameToolchainMap,
+) -> Result<()> {
     if opts.libs.is_empty() && opts.paths.is_empty() && opts.names.is_empty() && !opts.all {
         if opts.list {
             warn_if_empty(opts, name_toolchain_map)?;
@@ -660,8 +663,8 @@ mod test {
     // crate, and this was eating up all the thread local storage.
     //
     // The solution was to add `extern crate rustc_driver` to each library. This causes the library
-    // to link against `librust_driver.so`, which dynlint-driver also links against. So, essentially,
-    // each library now uses dynlint-driver's copy of the `rand` crate.
+    // to link against `librust_driver.so`, which dynlint-driver also links against. So,
+    // essentially, each library now uses dynlint-driver's copy of the `rand` crate.
     //
     // This thread was very helpful in diagnosing the problem:
     //

@@ -450,8 +450,8 @@ enum ConfigErrorInner {
 
 static CONFIG_TABLE: Mutex<Option<toml::value::Table>> = Mutex::new(None);
 
-/// Reads and deserializes an entry from the workspace's `dynlint.toml` file, and returns the default
-/// value if the entry is not present.
+/// Reads and deserializes an entry from the workspace's `dynlint.toml` file, and returns the
+/// default value if the entry is not present.
 ///
 /// - If the target workspace's `dynlint.toml` file contains key `name` and its value can be
 ///   deserializes as `T`, `config_or_default` returns the deserialized value.
@@ -479,10 +479,10 @@ pub fn config_or_default<T: Default + serde::de::DeserializeOwned>(name: &str) -
 /// Reads and deserializes an entry from the workspace's `dynlint.toml` file.
 ///
 /// Returns:
-/// - `Ok(Some(...))` if the target workspace's `dynlint.toml` file contains key `name` and its value
-///   can be deserialized as `T`
-/// - `Ok(None)` if the target workspace's `dynlint.toml` file does not exist or does not contain key
-///   `name`
+/// - `Ok(Some(...))` if the target workspace's `dynlint.toml` file contains key `name` and its
+///   value can be deserialized as `T`
+/// - `Ok(None)` if the target workspace's `dynlint.toml` file does not exist or does not contain
+///   key `name`
 /// - `Err(...)` if an error occurs (e.g., the value cannot be deserialized as `T`)
 ///
 /// Note: `init_config` or `try_init_config` must be called before `config` is called. However, the
@@ -498,8 +498,8 @@ pub fn config<T: serde::de::DeserializeOwned>(name: &str) -> ConfigResult<Option
 ///
 /// Returns:
 /// - `Ok(Some(...))` if the target workspace's `dynlint.toml` file contains key `name`
-/// - `Ok(None)` if the target workspace's `dynlint.toml` file does not exist or does not contain key
-///   `name`
+/// - `Ok(None)` if the target workspace's `dynlint.toml` file does not exist or does not contain
+///   key `name`
 /// - `Err(...)` if an error occurs (e.g., `init_config` was not called)
 ///
 /// Note: `init_config` or `try_init_config` must be called before `config_toml` is called. However,

@@ -98,9 +98,9 @@ mod test {
     }
 
     // smoelius: Here is why the below uses of `env_remove` and `env` are needed:
-    // - `dynlint_testing::ui_test_example` above sets `DYNLINT_LIBRARY_PATH`. Having this environment
-    //   variable set causes "found multiple libraries" errors when Dynlint is run directly. Hence,
-    //   the variable must be unset before Dynlint can be run directly.
+    // - `dynlint_testing::ui_test_example` above sets `DYNLINT_LIBRARY_PATH`. Having this
+    //   environment variable set causes "found multiple libraries" errors when Dynlint is run
+    //   directly. Hence, the variable must be unset before Dynlint can be run directly.
     // - Setting `RUSTFLAGS` forces `cargo check` to be re-run. Unfortunately, this also forces
     //   `cargo-dynlint` to be rebuilt, which causes problems on Windows, hence the need for the
     //   mutex.

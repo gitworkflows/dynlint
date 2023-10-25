@@ -57,7 +57,7 @@ The example libraries are separated into the following three categories:
 
 | Example                            | Description/check                                      |
 | ---------------------------------- | ------------------------------------------------------ |
-| [`clippy`](./testing/clippy)       | All of the Clippy lints as a Dynlint library            |
+| [`clippy`](./testing/clippy)       | All of the Clippy lints as a Dynlint library           |
 | [`straggler`](./testing/straggler) | A lint that uses an old toolchain for testing purposes |
 
 **Notes**

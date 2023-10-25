@@ -35,7 +35,8 @@ fn ui() {
 
     let dynlint_libs = dynlint_testing::dynlint_libs("clippy").unwrap();
     let driver =
-        dynlint::driver_builder::get(&dynlint::Dynlint::default(), env!("RUSTUP_TOOLCHAIN")).unwrap();
+        dynlint::driver_builder::get(&dynlint::Dynlint::default(), env!("RUSTUP_TOOLCHAIN"))
+            .unwrap();
 
     // smoelius: Clippy's `compile-test` panics if multiple rlibs exist for certain crates (see
     // `third_party_crates` in
